@@ -1,0 +1,793 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Soil Pro +</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Meow+Script&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Meow+Script&family=Mr+Dafoe&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400..700&family=Meow+Script&family=Mr+Dafoe&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400..700&family=Meow+Script&family=Mr+Dafoe&family=Rubik+Glitch&display=swap" rel="stylesheet">
+</head>
+  <style>
+		h1 {
+			color: #2c3e50;
+			text-align: center;
+		}
+
+		.warning {
+			color: red;
+			font-weight: bold;
+			text-align: center;
+		}
+		.card{
+		margin-left:510px;
+		margin-top: 20px;
+		color: white;
+		}
+		.container{
+		background:#F8FAFC;
+		font-weight: bold;
+		padding-bottom:10px;
+		border-radius: 15px;
+		padding-top: 150px;
+		padding-bottom: 50px;
+		}
+		
+		/* Navbar */
+	.navbar {
+		font-family: "Markazi Text", serif;
+		
+    	display: flex;
+    	justify-content: space-between;
+    	align-items: center;
+    	padding: 20px;
+    	position: fixed;
+    	top: 0;
+    	left: 0;
+    	width: 100%;
+    	z-index: 10;
+    	backdrop-filter: blur(10px);
+    	background: rgba(255, 255, 255, 0.2); /* Glass effect */
+    	border-radius: 10px;
+    	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+	/* Logo */
+	.navbar .logo {
+    	font-size: 32px;
+    	font-weight: 700;
+    	color:  #2c3e50;
+	}
+
+	/* Navbar links */
+	.nav-links {
+    	display: flex;
+    	gap: 20px;
+	}
+
+	.nav-links li {
+    	list-style: none;
+	}
+
+	.nav-links a {
+    	text-decoration: none;
+    	color: black;
+    	font-size: 20px;
+		font-weight: 600px;
+    	padding: 10px 20px;
+    	border-radius: 30px;
+    	transition: background 0.3s ease;
+	}
+
+	.nav-links a:hover {
+    	background-color: rgba(255, 255, 255, 0.3);
+	}
+
+	/* Hamburger menu */
+	.menu-icon {
+    	display: none;
+    	cursor: pointer;
+    	flex-direction: column;
+    	gap: 5px;
+	}
+
+	.menu-icon .bar {
+    	width: 25px;
+    	height: 4px;
+    	background-color: #A5D6A7;
+    	border-radius: 5px;
+	}
+
+	/* Mobile View */
+	@media (max-width: 768px) {
+    	.nav-links {
+        	display: none;
+       	 position: absolute;
+        	top: 60px;
+        	right: 20px;
+        	background: rgba(255, 255, 255, 0.2);
+        	padding: 20px;
+        	border-radius: 10px;
+        	flex-direction: column;
+        	gap: 15px;
+    	}
+
+    	.nav-links.active {
+       	 display: flex;
+    	}
+
+    	.menu-icon {
+        	display: flex;
+    	}
+	}
+	/* Parallax Effect */
+	/* Parallax Effect */
+	.parallax {
+		position: relative;
+    background-image: url('static/imge.jpg'); /* Path to your background image */
+    background-attachment: fixed; /* Parallax effect */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh; /* Full height of the viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    padding: 40px 20px;
+    overflow: hidden;
+	}
+	/* Parallax Section */
+/* Section styling */
+.section-with-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    background-color: #f5f5f5;
+    margin-top: -5px; /* To have the section feel connected with the background image */
+    z-index: 1;
+}
+
+/* Text content */
+.text-content {
+    max-width: 600px; /* Limit text width */
+    padding-left: 40px;
+    padding-right: 40px;
+	margin-left: 120px;
+    z-index: 2;
+}
+
+.section-heading {
+    font-size: 36px;
+    font-weight: 700;
+    color: #2c3e50; /* Dark color for text */
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    animation: fadeInUp 1.5s ease-out;
+}
+
+/* Fade-in animation for heading */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section-text {
+    font-size: 18px;
+    color: #7f8c8d;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    animation: fadeInUp 1.8s ease-out;
+}
+
+/* Image box styling with rounded corners and 3D effect */
+.image-box {
+    position: relative;
+    max-width: 400px;
+    height: 300px;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1); /* 3D-like box shadow for depth */
+    overflow: hidden;
+    transform: perspective(1000px) rotateY(5deg); /* Creates a 3D perspective */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth effect on hover */
+}
+
+/* Image inside the box */
+.image-box img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px; /* Rounded corners for the image */
+}
+
+/* Hover effect on the box */
+.image-box:hover {
+    transform: perspective(1000px) rotateY(0deg) scale(1.05); /* Slight zoom effect and rotate on hover */
+    box-shadow: 0 30px 50px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* Optional: Add background image effect for section */
+.section-with-image {
+    background: url('static/your-background-image.jpg') no-repeat center center/cover;
+    background-size: cover;
+    position: relative;
+    padding-top: 100px; /* Space for background */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .section-with-image {
+        flex-direction: column; /* Stack content and image vertically on small screens */
+        padding: 20px;
+    }
+
+    .text-content {
+        max-width: 100%; /* Full width text on small screens */
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .image-box {
+        max-width: 100%; /* Full width image box on small screens */
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .section-heading {
+        font-size: 28px;
+    }
+
+    .section-text {
+        font-size: 16px;
+    }
+}
+/* Footer Container */
+footer {
+    background-color: #1a1a1a; /* Dark background */
+    color: #fff; /* White text */
+    padding: 60px 0; /* Top, Bottom padding */
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Footer Container with Content */
+footer .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Footer Title */
+footer h2 {
+    font-size: 36px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    color: #fff;
+    position: relative;
+    display: inline-block;
+}
+
+/* Subtle Gradient Line Below Title */
+footer h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #ff6a00, #ff416c); /* Gradient color */
+    border-radius: 5px;
+    opacity: 0.6;
+}
+
+/* Footer Links Container */
+footer .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Individual Footer Links */
+footer .footer-links li {
+    margin: 10px 20px;
+}
+
+footer .footer-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s, transform 0.3s;
+}
+
+/* Hover effect on links */
+footer .footer-links a:hover {
+    color: #ff6a00; /* Change link color on hover */
+    transform: translateY(-3px); /* Slightly move the link upwards */
+}
+
+/* Social Icons */
+footer .social-icons {
+    margin: 30px 0;
+}
+
+footer .social-icons a {
+    color: #fff;
+    font-size: 30px;
+    margin: 0 15px;
+    transition: transform 0.3s, color 0.3s;
+}
+
+/* Social Icons Hover Effect */
+footer .social-icons a:hover {
+    color: #ff6a00; /* Change color on hover */
+    transform: scale(1.1); /* Slightly enlarge icon on hover */
+}
+
+/* Footer Bottom Text */
+footer .footer-bottom {
+    margin-top: 40px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+footer .footer-bottom a {
+    color: #aaa;
+    text-decoration: none;
+}
+
+footer .footer-bottom a:hover {
+    color: #ff6a00; /* Change color on hover */
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    footer h2 {
+        font-size: 28px;
+    }
+
+    footer .footer-links {
+        flex-direction: column;
+    }
+
+    footer .footer-links li {
+        margin: 5px 0;
+    }
+
+    footer .social-icons a {
+        font-size: 25px;
+    }
+
+    footer .footer-bottom {
+        font-size: 12px;
+    }
+}
+
+/* Parallax Section Styling */
+.parallax-section-new {
+    position: relative;
+    background-image: url('static/crimg2.jpg'); /* Path to your background image */
+    background-attachment: fixed; /* Parallax effect */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 50vh; /* Full height of the viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    padding: 40px 20px;
+    overflow: hidden;
+}
+
+/* Parallax Content Styling */
+.parallax-content-new {
+    z-index: 1;
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+}
+
+/* Heading Styling */
+.parallax-content-new h1 {
+    font-size: 60px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+    color: #fff;
+    position: relative;
+    animation: fadeInUp 1.5s ease-out forwards;
+}
+
+/* Paragraph Styling */
+.parallax-content-new p {
+    font-size: 25px;
+    line-height: 1.8;
+    color: #ddd;
+    margin-bottom: 30px;
+    animation: fadeInUp 1.5s ease-out forwards;
+	font-family: "Meow Script", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Call to Action Button */
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #ff6a00; /* Vibrant color for the button */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.3s, transform 0.3s;
+    letter-spacing: 1px;
+    animation: fadeInUp 1.5s ease-out forwards;
+}
+
+/* Button Hover Effect */
+.cta-button:hover {
+    background-color: #ff416c; /* Lighter shade */
+    transform: scale(1.05); /* Button grows slightly on hover */
+}
+
+/* Fade-in Animation for Content */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .parallax-content-new h1 {
+        font-size: 45px;
+    }
+
+    .parallax-content-new p {
+        font-size: 18px;
+    }
+
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+}
+.parallax-content {
+    z-index: 1;
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px;
+    
+    border-radius: 10px;
+    text-align: center;
+   
+}
+.main-heading {
+	/* font-family: "Markazi Text", serif; */
+	font-family: "Rubik Glitch", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+    font-size: 100px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #FFFDF0;
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7); /* Text shadow for contrast */
+    margin-bottom: 20px;
+    animation: fadeInUp 1.5s ease-out forwards;
+}
+
+/* Paragraph Styling */
+.parallax p {
+    font-size: 25px;
+    line-height: 1.8;
+    color: #ddd;
+    margin-bottom: 30px;
+    animation: fadeInUp 1.5s ease-out forwards;
+	font-family: "Meow Script", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Call to Action Button */
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #ff6a00; /* Vibrant color for the button */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.3s, transform 0.3s;
+    letter-spacing: 1px;
+    animation: fadeInUp 1.5s ease-out forwards;
+}
+
+/* Button Hover Effect */
+.cta-button:hover {
+    background-color: #ff416c; /* Lighter shade */
+    transform: scale(1.05); /* Button grows slightly on hover */
+}
+
+/* Fade-in Animation for Content */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-heading {
+        font-size: 50px;
+    }
+
+    .parallax-content-new p {
+        font-size: 18px;
+    }
+
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+}
+	</style>
+
+
+
+
+  <body style="background:#F6F4F0">
+  <!--=======================navbar=====================================================-->
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Crop Recommendation</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">About</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav> -->
+	<nav class="navbar">
+    	<div class="logo">Soil Pro +</div>
+    		<ul class="nav-links">
+        		<li><a href="#">Home</a></li>
+        		<li><a href="#">About</a></li>
+        		<li><a href="#">Services</a></li>
+        		<li><a href="#">Contact</a></li>
+    		</ul>
+   		<div class="menu-icon" id="menu-icon">
+        	<span class="bar"></span>
+        	<span class="bar"></span>
+        	<span class="bar"></span>
+    	</div>
+	</nav>
+</div>
+<!-- Parallax Section -->
+<div class="parallax">
+	<div class="parallax-content">
+        <h1 class="main-heading">Soil Pro+</h1>
+        <p>Explore the latest trends and innovations with us. Stay ahead in a rapidly evolving world.</p>
+    </div>
+</div>
+<section class="section-with-image">
+    <div class="image-box">
+        <img src="static/crimg3.jpg" alt="Image in Box">
+    </div>
+    <div class="text-content">
+        <h2 class="section-heading">Helping You Make The Right Choice</h2>
+        <p class="section-text">
+            Our recommendation system would help you choose the right crop based on your soil condition
+        </p>
+    </div>
+</section>
+
+
+
+<!--==========================================================================================-->
+  <div class="container my-3 mt-3">
+      <h1 class="text-success" style="color: #2c3e50;">Crop Recommendation System <span class="text-success">🌱</span></h1>
+
+<!--      adding form-->
+      <form action="/predict" method="POST">
+          <div class="row" style="padding: 50px; font-size: large;">
+              <div class="col-md-4">
+					<label for="Nitrogen">Nitrogen</label>
+					<input type="number" id="Nitrogen" name="Nitrogen" placeholder="Enter Nitrogen" class="form-control" required step="0">
+				</div>
+               <div class="col-md-4">
+					<label for="Phosporus">Phosphorus</label>
+					<input type="number" id="Phosporus" name="Phosporus" placeholder="Enter Phosphorus" class="form-control" required step="00">
+				</div>
+				<div class="col-md-4">
+					<label for="Potassium">Potassium</label>
+					<input type="number" id="Potassium" name="Potassium" placeholder="Enter Potassium" class="form-control" required step="0">
+				</div>
+          </div>
+
+          <div class="row mt-4" style="padding: 50px; font-size: large;">
+				<div class="col-md-4">
+					<label for="Temperature">Temperature</label>
+					<input type="number" step="0.01" id="Temperature" name="Temperature" placeholder="Enter Temperature in °C" class="form-control" required step="0">
+				</div>
+				<div class="col-md-4">
+					<label for="Humidity">Humidity</label>
+					<input type="number" step="0.01" id="Humidity" name="Humidity" placeholder="Enter Humidity in %" class="form-control" required step="0">
+				</div>
+				<div class="col-md-4">
+					<label for="pH">pH</label>
+					<input type="number" step="0.01" id="Ph" name="Ph" placeholder="Enter pH value" class="form-control" required step="0">
+				</div>
+			</div>
+
+          <div class="row mt-4" style="padding: 50px; font-size: large;">
+				<div class="col-md-4">
+					<label for="Rainfall">Rainfall</label>
+					<input type="number" step="0.01" id="Rainfall" name="Rainfall" placeholder="Enter Rainfall in mm" class="form-control" required>
+				</div>
+			</div>
+
+
+
+           <div class="row mt-4">
+
+           <div class="col-md-12 text-center">
+				<button type="submit" class="btn btn-primary btn-lg" style="background-color: #2c3e50;">Get Recommendation</button>
+			</div>
+			</div>
+      </form>
+
+
+
+       {% if result %}
+		<div class="card bg-dark" style="width: 18rem;">
+		  <img src="{{url_for('static', filename='img.jpg')}}" class="card-img-top" alt="...">
+		  <div class="card-body">
+			<h5 class="card-title">Recommend Crop for cultivation is:</h5>
+			<p class="card-text">{{ result }}</p>
+		  </div>
+		</div>
+	   {% endif %}
+  </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+	</script>
+	<script>
+		// Mobile Navbar Toggle
+			const menuIcon = document.getElementById('menu-icon');
+			const navLinks = document.querySelector('.nav-links');
+
+			menuIcon.addEventListener('click', () => {
+				navLinks.classList.toggle('active');
+			});
+			let currentIndex = 0;
+
+	function moveSlide(direction) {
+		const slides = document.querySelectorAll('.carousel-item');
+		const totalSlides = slides.length;
+
+		currentIndex += direction;
+
+		if (currentIndex < 0) {
+			currentIndex = totalSlides - 1; // Loop to the last slide
+		} else if (currentIndex >= totalSlides) {
+			currentIndex = 0; // Loop to the first slide
+		}
+
+		const carousel = document.querySelector('.carousel');
+		const slideWidth = slides[0].offsetWidth; // Get the width of one slide
+		carousel.style.transform = `translateX(-${currentIndex * slideWidth}px)`; // Move the carousel
+	}
+
+
+	</script>
+	<section class="parallax-section-new">
+		<div class="parallax-content-new">
+			<h1>Discover the Future</h1>
+			<p>Explore the latest trends and innovations with us. Stay ahead in a rapidly evolving world.</p>
+			
+		</div>
+	</section>
+	
+	<footer>
+		<div class="footer-container">
+			<!-- Footer Title -->
+			<h2>Stay Connected</h2>
+			
+			<!-- Footer Links -->
+			<ul class="footer-links">
+				<li><a href="#">Home</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Services</a></li>
+				<li><a href="#">Blog</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+	
+			<!-- Social Media Icons -->
+			<!-- <div class="social-icons">
+				<a href="https://facebook.com" target="_blank">facebook<i class="fab fa-facebook-f"></i></a>
+				<a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+				<a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+				<a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+			</div> -->
+	
+			<!-- Footer Bottom Text -->
+			<div class="footer-bottom">
+				<p>&copy; 2024 Soil Pro+. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+			</div>
+		</div>
+	</footer>
+	
+	<!-- Include Font Awesome for Social Icons -->
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	
+  </body>
+</html>
